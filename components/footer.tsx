@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-4">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/enerbat_rgb.svg" alt="Enerbat" width={100} height={32} className="h-16 w-auto" />
+              <Image src="/enerbat_rgb.svg" alt="Enerbat" width={140} height={45} className="h-20 w-auto" />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Energías sin límites. Soluciones de baterías de alta calidad para todas tus necesidades.
@@ -24,13 +24,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#empresa" className="text-muted-foreground transition-colors hover:text-primary">
+                <Link href="/#empresa" className="text-muted-foreground transition-colors hover:text-primary">
                   Nuestra Empresa
                 </Link>
               </li>
               <li>
                 <Link href="/productos" className="text-muted-foreground transition-colors hover:text-primary">
                   Productos
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contacto" className="text-muted-foreground transition-colors hover:text-primary">
+                  Contacto
                 </Link>
               </li>
             </ul>
@@ -47,21 +52,33 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold">Contacto</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 text-muted-foreground">
+                <MapPin className="h-4 w-4" />
+                <span>Av Eliseo Canton 1870 Cordoba, Cordoba.</span>
+              </li>
+              <li className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="h-4 w-4" />
-                <span>+54 11 1234-5678</span>
+                <a
+                  href="https://wa.me/543514890900"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-primary"
+                >
+                  (0351) 489 0900
+                </a>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="h-4 w-4" />
-                <span>info@enerbat.com</span>
-              </li>
-              <li className="flex items-center gap-2 text-muted-foreground">
-                <MapPin className="h-4 w-4" />
-                <span>Buenos Aires, Argentina</span>
+                <a
+                  href="mailto:hola@oechsle.com.ar"
+                  className="transition-colors hover:text-primary"
+                >
+                  hola@oechsle.com.ar
+                </a>
               </li>
             </ul>
           </div>
         </div>
-        <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Enerbat. Todos los derechos reservados.</p>
         </div>
       </div>

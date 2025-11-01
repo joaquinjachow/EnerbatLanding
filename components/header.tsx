@@ -9,16 +9,16 @@ export function Header() {
           <Image src="/enerbat_rgb.svg" alt="Enerbat" width={180} height={90} className="h-28 w-auto" />
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="/" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/" className="text-base font-medium transition-colors hover:text-primary">
             Inicio
           </Link>
-          <Link href="#empresa" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/#empresa" className="text-base font-medium transition-colors hover:text-primary">
             Empresa
           </Link>
-          <Link href="/productos" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/productos" className="text-base font-medium transition-colors hover:text-primary">
             Productos
           </Link>
-          <Link href="#contacto" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/#contacto" className="text-base font-medium transition-colors hover:text-primary">
             Contacto
           </Link>
         </nav>
