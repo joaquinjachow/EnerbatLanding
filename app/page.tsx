@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { productosDestacadosData } from "@/lib/products"
-import { Battery, Zap, Shield, Award, ArrowRight, Mail, Phone, MapPin, MessageCircle } from "lucide-react"
+import { Battery, Zap, Shield, Award, ArrowRight, Mail, Phone, MessageCircle } from "lucide-react"
 import Link from "next/link"
 
 export default function HomePage() {
