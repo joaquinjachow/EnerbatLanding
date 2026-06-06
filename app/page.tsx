@@ -121,7 +121,7 @@ export default function HomePage() {
           </div>
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {productosDestacadosData.slice(0, 6).map((product) => (
-              <ProductCard key={product.id} product={product} compact />
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
           <div className="mt-8 text-center">

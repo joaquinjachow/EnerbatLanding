@@ -77,7 +77,7 @@ export default function ProductosPage() {
             {filteredProducts.length > 0 ? (
               <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {filteredProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} compact />
+                  <ProductCard key={product.id} product={product} />
                 ))}
               </div>
             ) : (

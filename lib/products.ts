@@ -19,172 +19,6 @@ export interface Product {
   peso?: number
 }
 
-export const productosDestacadosData: Product[] = [
-  // AUTOS CALCIO
-  {
-    id: 4,
-    name: "E1255AA",
-    image: "/imagenes/e1255a.jpg",
-    category: "Calcio Autos",
-    denominación: "12 x 55",
-    largo: 204,
-    ancho: 174,
-    alto: 190,
-    reservaCapacidad: 90,
-    CapacidadAH: 51,
-    CCA: 430,
-    CA: 540,
-  },
-  {
-    id: 5,
-    name: "E1265A",
-    image: "/imagenes/e1265a.jpg",
-    category: "Calcio Autos",
-    denominación: "12 x 65",
-    largo: 240,
-    ancho: 174,
-    alto: 178,
-    reservaCapacidad: 70,
-    CapacidadAH: 45,
-    CCA: 430,
-    CA: 550,
-  },
-  {
-    id: 6,
-    name: "E1265AA",
-    image: "/imagenes/e1265aa.jpg",
-    category: "Calcio Autos",
-    denominación: "12 x 65 Alta",
-    largo: 240,
-    ancho: 174,
-    alto: 190,
-    reservaCapacidad: 83,
-    CapacidadAH: 54,
-    CCA: 450,
-    CA: 550,
-  },
-
-  //AUTOS SILVER
-  {
-    id: 17,
-    name: "ESG1250",
-    image: "/imagenes/esg1250.jpg",
-    category: "Silver Graphite autos",
-    denominación: "12 x 50",
-    largo: 205,
-    ancho: 175,
-    alto: 175,
-    reservaCapacidad: 39,
-    CapacidadAH: 36,
-    CCA: 220,
-    CA: 500,
-  },
-  {
-    id: 18,
-    name: "ESG1260",
-    image: "/imagenes/esg1260.jpg",
-    category: "Silver Graphite autos",
-    denominación: "12 x 60",
-    largo: 205,
-    ancho: 175,
-    alto: 195,
-    reservaCapacidad: 43,
-    CapacidadAH: 45,
-    CCA: 290,
-    CA: 540,
-  },
-  {
-    id: 19,
-    name: "ESG1265",
-    image: "/imagenes/esg1265.jpg",
-    category: "Silver Graphite autos",
-    denominación: "12 x 65",
-    largo: 245,
-    ancho: 175,
-    alto: 175,
-    reservaCapacidad: 60,
-    CapacidadAH: 46,
-    CCA: 340,
-    CA: 630,
-  },
-
-  //BATERIA MOTOS
-  {
-    id: 33,
-    name: "ETX5L-BS - 12V",
-    image: "/imagenes/etx5l-bs.jpg",
-    category: "Baterías para Motos",
-    C10: 4,
-    CCA: 70,
-    largo: 114,
-    ancho: 71,
-    alto: 106,
-  },
-  {
-    id: 34,
-    name: "ETX6.5-BS - 12V",
-    image: "/imagenes/etx6.5-bs.jpg",
-    category: "Baterías para Motos",
-    C10: 6.5,
-    CCA: 70,
-    largo: 139,
-    ancho: 66,
-    alto: 102,
-  },
-  {
-    id: 35,
-    name: "ETX7L-BS - 12V",
-    image: "/imagenes/etx7l-bs.jpg",
-    category: "Baterías para Motos",
-    C10: 6,
-    CCA: 85,
-    largo: 114,
-    ancho: 71,
-    alto: 131,
-  },
-
-  // BATERIAS DE CICLADO PROFUNDO
-  {
-    id: 47,
-    name: "EP12-7.0",
-    image: "/imagenes/ep12-7.jpg",
-    category: "Baterías de Ciclado Profundo",
-    tension: "12v",
-    AH20hs: 7,
-    largo: 151,
-    ancho: 65,
-    alto: 93.5,
-    altoTotal: 99.5,
-    peso: 1.97,
-  },
-  {
-    id: 48,
-    name: "EP12-9.0",
-    image: "/imagenes/ep12-9.jpg",
-    category: "Baterías de Ciclado Profundo",
-    tension: "12v",
-    AH20hs: 9,
-    largo: 151,
-    ancho: 65,
-    alto: 99.5,
-    altoTotal: 99.5,
-    peso: 2.52,
-  },
-  {
-    id: 49,
-    name: "EP12-20",
-    image: "/imagenes/ep12-20.jpg",
-    category: "Baterías de Ciclado Profundo",
-    tension: "12v",
-    AH20hs: 20,
-    largo: 181.5,
-    ancho: 76.5,
-    alto: 167.5,
-    altoTotal: 167.5,
-    peso: 5.65,
-  },
-]
-
 export const productosData: Product[] = [
   // AUTOS CALCIO
   {
@@ -856,21 +690,16 @@ export const productosData: Product[] = [
   },
 ]
 
+const FEATURED_PRODUCT_IDS = [4, 5, 6, 17, 18, 19, 33, 34, 35, 47, 48, 49]
+
+export const productosDestacadosData: Product[] = FEATURED_PRODUCT_IDS.map(
+  (id) => productosData.find((product) => product.id === id)!,
+)
+
 export const getCategories = (): string[] => {
   const categories = new Set<string>()
   productosData.forEach((product) => {
     categories.add(product.category)
   })
   return Array.from(categories)
-}
-
-export const getProductById = (id: number): Product | undefined => {
-  return productosData.find((product) => product.id === id)
-}
-
-export const getProductsByCategory = (category: string): Product[] => {
-  if (category === "Todos") {
-    return productosData
-  }
-  return productosData.filter((product) => product.category === category)
 }
