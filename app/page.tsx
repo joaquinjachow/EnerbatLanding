@@ -9,12 +9,39 @@ import { productosDestacadosData } from "@/lib/products"
 import { Battery, Zap, Shield, Award, ArrowRight, Mail, Phone, MessageCircle } from "lucide-react"
 import Link from "next/link"
 
+const FEATURED_PRODUCTS_LIMIT = 6
+
+const PROVINCES = [
+  "Catamarca",
+  "Chaco",
+  "Chubut",
+  "Córdoba",
+  "Corrientes",
+  "Entre Ríos",
+  "Formosa",
+  "Jujuy",
+  "La Pampa",
+  "La Rioja",
+  "Mendoza",
+  "Misiones",
+  "Neuquén",
+  "Río Negro",
+  "Salta",
+  "San Juan",
+  "San Luis",
+  "Santa Cruz",
+  "Santa Fe",
+  "Santiago del Estero",
+  "Tierra del Fuego",
+  "Tucumán",
+]
+
 export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted py-12 md:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted pt-10 pb-12 md:pt-12 md:pb-20">
         <div className="container max-w-7xl mx-auto relative z-10 px-4">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border bg-background/50 px-4 py-2 text-sm backdrop-blur">
@@ -120,7 +147,7 @@ export default function HomePage() {
             <p className="text-lg text-muted-foreground">Descubre nuestra selección de baterías más populares</p>
           </div>
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-            {productosDestacadosData.slice(0, 6).map((product) => (
+            {productosDestacadosData.slice(0, FEATURED_PRODUCTS_LIMIT).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -242,28 +269,11 @@ export default function HomePage() {
                       className="block w-full rounded-md border border-gray-300 bg-gray-100 py-2 px-3 text-gray-900 shadow-sm focus:border-[#0419a2] focus:ring-[#0419a2] focus:outline-none focus:ring-2 transition-colors duration-200"
                     >
                       <option value="">Selecciona una provincia</option>
-                      <option value="Catamarca">Catamarca</option>
-                      <option value="Chaco">Chaco</option>
-                      <option value="Chubut">Chubut</option>
-                      <option value="Córdoba">Córdoba</option>
-                      <option value="Corrientes">Corrientes</option>
-                      <option value="Entre Ríos">Entre Ríos</option>
-                      <option value="Formosa">Formosa</option>
-                      <option value="Jujuy">Jujuy</option>
-                      <option value="La Pampa">La Pampa</option>
-                      <option value="La Rioja">La Rioja</option>
-                      <option value="Mendoza">Mendoza</option>
-                      <option value="Misiones">Misiones</option>
-                      <option value="Neuquén">Neuquén</option>
-                      <option value="Río Negro">Río Negro</option>
-                      <option value="Salta">Salta</option>
-                      <option value="San Juan">San Juan</option>
-                      <option value="San Luis">San Luis</option>
-                      <option value="Santa Cruz">Santa Cruz</option>
-                      <option value="Santa Fe">Santa Fe</option>
-                      <option value="Santiago del Estero">Santiago del Estero</option>
-                      <option value="Tierra del Fuego">Tierra del Fuego</option>
-                      <option value="Tucumán">Tucumán</option>
+                      {PROVINCES.map((province) => (
+                        <option key={province} value={province}>
+                          {province}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div className="space-y-2">

@@ -6,6 +6,9 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Enerbat - Energías sin límites",
   description: "Baterías de alta calidad para autos, motos y aplicaciones de ciclado profundo",
+  icons: {
+    icon: "/favicon.png",
+  },
 }
 
 export default function RootLayout({

@@ -1,13 +1,14 @@
 import { Mail, Phone, MapPin } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { NAV_LINKS } from "@/lib/navigation"
 
 export function Footer() {
   return (
     <footer className="border-t bg-muted/30">
-      <div className="container max-w-7xl mx-auto py-12 px-4">
-        <div className="grid gap-8 md:grid-cols-4">
-          <div className="space-y-4">
+      <div className="container max-w-7xl mx-auto py-6 px-4">
+        <div className="grid gap-6 md:grid-cols-4">
+          <div className="space-y-1">
             <Link href="/" className="flex items-center gap-2">
               <Image src="/enerbat_rgb.svg" alt="Enerbat" width={140} height={45} className="h-20 w-auto" />
             </Link>
@@ -18,26 +19,13 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-sm font-semibold">Navegación</h3>
             <ul className="space-y-3 text-sm">
-              <li>
-                <Link href="/" className="text-muted-foreground transition-colors hover:text-primary">
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Link href="/#empresa" className="text-muted-foreground transition-colors hover:text-primary">
-                  Nuestra Empresa
-                </Link>
-              </li>
-              <li>
-                <Link href="/productos" className="text-muted-foreground transition-colors hover:text-primary">
-                  Productos
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contacto" className="text-muted-foreground transition-colors hover:text-primary">
-                  Contacto
-                </Link>
-              </li>
+              {NAV_LINKS.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-muted-foreground transition-colors hover:text-primary">
+                    {link.footerName}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
@@ -78,7 +66,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-4 border-t pt-4 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Enerbat. Todos los derechos reservados.</p>
         </div>
       </div>

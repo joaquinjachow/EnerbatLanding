@@ -8,17 +8,21 @@ import { Button } from "@/components/ui/button"
 import { productosData, getCategories } from "@/lib/products"
 import { Search } from "lucide-react"
 
+const ALL_CATEGORIES = "Todos"
+
 export default function ProductosPage() {
   const [searchQuery, setSearchQuery] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState("Todos")
-  const categories = ["Todos", ...getCategories()]
+  const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES)
+  const categories = [ALL_CATEGORIES, ...getCategories()]
   const filteredProducts = useMemo(() => {
+    const normalizedQuery = searchQuery.toLowerCase()
+
     return productosData.filter((product) => {
       const matchesSearch =
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.denominación?.toLowerCase().includes(searchQuery.toLowerCase())
-      const matchesCategory = selectedCategory === "Todos" || product.category === selectedCategory
+        product.name.toLowerCase().includes(normalizedQuery) ||
+        product.category.toLowerCase().includes(normalizedQuery) ||
+        product["denominaci\u00f3n"]?.toLowerCase().includes(normalizedQuery)
+      const matchesCategory = selectedCategory === ALL_CATEGORIES || product.category === selectedCategory
       return matchesSearch && matchesCategory
     })
   }, [searchQuery, selectedCategory])
